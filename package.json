@@ -2,7 +2,7 @@
   "name": "mybio",
   "version": "0.0.1",
   "description": "Build A Bio Page ",
-  "productName": "Quasar App",
+  "productName": "My Bio",
   "author": "Po-Hung Liu",
   "type": "module",
   "private": true,
@@ -15,6 +15,7 @@
     "postinstall": "quasar prepare"
   },
   "dependencies": {
+    "@mdi/js": "^7.4.47",
     "@quasar/extras": "^1.16.4",
     "animate.css": "^4.1.1",
     "pinia": "^3.0.1",

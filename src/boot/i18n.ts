@@ -2,14 +2,69 @@
 import { boot } from 'quasar/wrappers';
 import { createI18n } from 'vue-i18n';
 
-const messages = {
+// --- Step 1: Type Definitions ---
+type ProjectEntry = {
+  title: string;
+  description: string;
+  url?: string; // Optional URL for the project
+};
+
+type ExperienceItem = {
+  title: string;
+  subtitle: string;
+  description: string;
+  icon?: string;
+};
+type skill = {
+  jobName: string;
+  skillName: string[];
+};
+
+type LocaleMessages = {
+  nav: Record<string, string>;
+  home: Record<string, string>;
+  about: {
+    title: string;
+    summaryTitle: string;
+    summary: string;
+    nameFirst: string;
+    nameSecond: string;
+    email: string;
+    website: string;
+    github: string;
+    kaggle: string;
+    gender: string;
+    birth: string;
+    location: string;
+    skillTitle: string;
+    skills: skill[];
+  };
+  experience: {
+    title: string;
+    items: ExperienceItem[];
+  };
+  interests: {
+    title: string;
+    items: {
+      year: string;
+      topic: string;
+      description: string;
+    }[];
+  };
+  projects: {
+    title: string;
+    projectList: ProjectEntry[];
+  };
+};
+
+// --- Step 2: Message Definitions ---
+const messages: Record<'en' | 'zh', LocaleMessages> = {
   en: {
     nav: {
       title: 'My Bio',
-      about: 'About',
-      experience: 'Experience',
+      about: 'Resume',
+      interests: 'Interests',
       projects: 'Projects',
-      contact: 'Contact',
     },
     home: {
       greeting: "Hi, I'm Po-Hung Liu",
@@ -18,62 +73,156 @@ const messages = {
     },
     about: {
       title: 'About Me',
-      content:
-        'I am a research-oriented individual with a strong interest in the application of data science and financial economics. My expertise lies in integrating programming and statistical methods to address both practical and theoretical problems. Over the years, I have been deeply engaged in areas such as asset pricing models, machine learning forecasting, and data visualization, with experience spanning multiple programming languages and platforms. In my work, I place a high value on logical structure and attention to detail. I take satisfaction in tackling complex challenges, which continually motivates me to improve and grow.I am analytical by nature, enjoy independent thinking, and strive to understand the essence of the problems I encounter. Beyond my professional interests, I enjoy reading philosophy and social science literature, which helps me reflect on personal development and the broader meaning of work. I believe that solid technical skills combined with thoughtful inquiry are key to producing meaningful and impactful results.',
+      summaryTitle: 'Summary',
+      summary:
+        'I am a person driven by curiosity, passionate about exploring questions and seeking answers, with a profound interest in philosophical thinking. Programming is my passion—it allows me to deconstruct complex problems with logic and gain a deep sense of accomplishment through problem-solving and implementation. I enjoy challenging myself, actively embracing new experiences both in learning and in life.This mindset has led me to explore diverse fields and various technologies over the years, continuously honing my skills. For topics that spark my interest, even beyond my professional expertise, I devote time to in-depth research—understanding the problem, delving into its background, and exploring potential solutions.This is also why data science captivates me: it is not merely a mechanical exercise in technical implementation, but a discipline that intertwines comprehension and conjecture—a gateway to understanding the world and exploring truth.',
+      nameFirst: 'Liu Po-Hung',
+      nameSecond: '劉伯洪',
+      email: 'liubohung@gmail.com',
+      website: 'https://liubohung.github.io',
+      github: 'liubohung',
+      kaggle: 'pohungliu',
+      gender: 'Gender : Male',
+      location: 'Location : Taiwan (Hualien)',
+      birth: 'Birth : 1999-12-10',
+      skillTitle: 'Skills',
+      skills: [
+        {
+          jobName: 'Programming Languages',
+          skillName: ['Python', 'C', 'JavaScript', 'Typescript(Still Learning)'],
+        },
+        {
+          jobName: 'Web Frameworks & Libraries',
+          skillName: ['Vue 3', 'Naive UI', 'Quasar', 'Flask'],
+        },
+        {
+          jobName: 'Data Science & Machine Learning',
+          skillName: ['Pandas', 'statsmodels', 'Scikit-learn', 'PyTorch'],
+        },
+        {
+          jobName: 'Data Visualization',
+          skillName: ['Matplotlib', 'Seaborn', 'Tableau public'],
+        },
+        {
+          jobName: 'Database',
+          skillName: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+        },
+      ],
     },
     experience: {
       title: 'Experience',
-      item1: {
-        title: 'Undergraduate',
-        subtitle: 'Department of Computer Science and Engineering, Feng Chia University',
-        description:
-          'Developed foundational skills in data processing, algorithms, and model construction through a combined background in computer science and finance.',
-      },
-      item2: {
-        title: 'Research Assistant in Educational Data Visualization',
-        subtitle: 'Educational Institution Collaborative Project (2022 - 2023)',
-        description:
-          'Designed and implemented a data visualization platform for educational data, supporting the analysis of student performance and curriculum trends.',
-      },
-      item3: {
-        title: 'Asset Pricing Research and Academic Writing',
-        subtitle: 'Academic Research and Project Collaboration (2021 - Present)',
-        description:
-          'Engaged in the development of asset pricing models, empirical analysis in behavioral finance, and the investigation of financial market anomalies.',
-      },
-      item4: {
-        title: 'Master’s Program',
-        subtitle: 'Department of Finance, National Dong Hwa University',
-        description: '',
-      },
+      items: [
+        {
+          title: "Bachelor's Degree",
+          subtitle:
+            'Feng Chia University, Department of Computer Science and Information Engineering (2018 - 2022)',
+          description:
+            'During my undergraduate studies, I served as a teaching assistant for several courses, including Object-Oriented Software Engineering (junior year), Database (junior year), Data Structures (senior year), and Algorithms (senior year). I also participated in multiple projects across various domains, covering data analysis, artificial intelligence, embedded systems, databases and web development, as well as graphical cryptography.',
+          icon: 'mdi-school',
+        },
+        {
+          title: 'Research Assistant in Educational Data Visualization',
+          subtitle: 'Collaborative Project with Educational Institutions (2023 - 2024)',
+          description:
+            'Responsible for designing and implementing an educational data visualization platform, analyzing student enrollment data alongside demographic trends in Taiwan.',
+          icon: 'mdi-chart-timeline-variant-shimmer',
+        },
+        {
+          title: 'Graduate Studies',
+          subtitle: 'National Dong Hwa University, Department of Finance (2023 - 2025)',
+          description:
+            'Driven by my interest in finance, I pursued a Master’s degree in Finance. My graduate research focused on asset pricing and behavioral finance theories, with an in-depth study of econometrics. My master’s thesis, "Chasing the Uncharted: Lottery Effect and Short-Term Investment Returns," represents the culmination of my academic work during this period.',
+          icon: 'mdi-school',
+        },
+        {
+          title: 'To Be Continued',
+          subtitle: '',
+          description: '',
+        },
+      ],
+    },
+
+    interests: {
+      title: 'Learning Interests',
+      items: [
+        {
+          year: '2018',
+          topic: 'First Steps into Programming',
+          description:
+            'Entered the Interdisciplinary Honors Program of the College of Information and Electrical Engineering at Feng Chia University. First exposure to programming through the classic K&R book "The C Programming Language," gradually building fundamental programming concepts and logical thinking.',
+        },
+        {
+          year: '2019',
+          topic: 'Problems and Applications',
+          description:
+            'In sophomore year, participated in multiple hands-on projects (including graphical cryptography and embedded systems), learning to develop front-end and back-end applications, cryptography, and image processing.',
+        },
+        {
+          year: '2020',
+          topic: 'Introduction to Data Analysis',
+          description:
+            'Gained an initial understanding of data analysis through the course "Practical Data Mining," and began learning to process data using Python.',
+        },
+        {
+          year: '2021',
+          topic: 'Advanced Data Analysis',
+          description:
+            'Continued to accumulate experience in data analysis, further mastering EDA, feature engineering, and model building techniques, and developing a systematic capability for data processing and analysis.',
+        },
+        {
+          year: '2022',
+          topic: 'Machine Learning and Deep Learning',
+          description:
+            'Joined a research lab and applied computer vision algorithms to develop a professional baseball highlight extraction system. The system detected scoreboard changes to automatically capture exciting game moments.',
+        },
+        {
+          year: '2023',
+          topic: 'Educational Data Visualization',
+          description:
+            'Conducted visualization and analysis of Taiwan’s primary and secondary education data to examine enrollment trends and the distribution of educational resources, providing references for policy-making and academic research.',
+        },
+        {
+          year: '2024',
+          topic: 'First Steps into Finance',
+          description:
+            'Entered the Department of Finance, studying econometrics while integrating previous machine learning experience into financial empirical research. Econometrics emphasizes model interpretability and empirical methodology, while machine learning focuses on prediction accuracy and generalization—combining the two offers a deeper research perspective.',
+        },
+        {
+          year: '2025',
+          topic: 'Asset Pricing and Behavioral Finance Research',
+          description:
+            'Conducted systematic exploration of empirical and theoretical developments in asset pricing over the past three decades. Using Taiwan market data for empirical analysis, my master’s thesis focuses on the lottery effect in asset pricing: "To Run Where the Brave Dare Not Go : Investment Returns and the Lottery Effect from a Short-Term Perspective" represents the main research outcome of my graduate studies.',
+        },
+        {
+          year: '',
+          topic: 'To Be Continued',
+          description: '',
+        },
+      ],
     },
     projects: {
       title: 'Projects',
-      project1: {
-        title: 'Portfolio Website',
-        description: 'A personal site built with Vue and Quasar.',
-      },
-      project2: {
-        title: 'Dashboard App',
-        description: 'An admin dashboard with real-time data and charts.',
-      },
-    },
-    contact: {
-      title: 'Contact Me',
-      name: 'Your Name',
-      email: 'Email',
-      message: 'Message',
-      send: 'Send Message',
-      thankYou: 'Thank you',
+      projectList: [
+        {
+          title: "Kaggle's Work",
+          description:
+            'Kaggle competitions and notebooks, including data analysis, modeling, and forecasting.',
+          url: 'https://www.kaggle.com/pohungliu/code',
+        },
+        {
+          title: '公開資訊觀測站 - 關鍵字搜尋',
+          description: '擷取 公開資訊觀測站 (MOPS) 相關公告資料。',
+          url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
+        },
+      ],
     },
   },
   zh: {
     nav: {
-      title: '我的簡介',
-      about: '關於我',
-      experience: '經歷',
+      title: '關於我',
+      about: '簡歷',
+      interests: '學習興趣',
       projects: '作品集',
-      contact: '聯絡方式',
     },
     home: {
       greeting: '嗨，我是 劉伯洪',
@@ -82,58 +231,155 @@ const messages = {
     },
     about: {
       title: '關於我',
-      content:
-        '我是一位關注資料科學與財務經濟應用的研究型人才，擅長將程式設計與統計方法結合，解決實務與理論上的分析問題。過去在學術與實作中，我持續投入於資產定價模型、機器學習預測、與資料視覺化等領域，並具備跨語言與多平台開發經驗。工作上，我注重邏輯結構與細節品質，樂於面對複雜問題並從中獲得成就感，這也是驅動我持續精進的動力來源。個性上，我思維嚴謹、喜歡獨立思考，亦樂於深入理解事物的本質。除了專業領域，我也熱愛閱讀哲學與社會科學書籍，從中反思個人定位與工作意義。我相信，扎實的技術與對問題的真誠思考，才能創造出具有價值與深度的成果。',
+      summaryTitle: '個人簡介',
+      summary:
+        '我是一位充滿好奇心的人，熱衷於探索問題並尋找解答，並且對哲學思考抱有濃厚興趣。程式設計是我的熱愛，它讓我能以邏輯拆解複雜問題，並在解決與實作的過程中獲得成就感。我樂於挑戰自我，無論在學習或生活中，都積極嘗試新事物。這使我在過去涉略多元領域與不同技術，並不斷精進自身能力。對於感興趣的議題，即便超出專業範疇，我也會投入時間深入研究。了解問題、深入背景知識以及探索解決方案。這也是資料科學吸引我的原因，因為它不僅僅是機械化的技術實踐，而是結合理解與猜想的工作，更是一扇理解世界、探索真理的窗口。',
+      nameFirst: '劉伯洪',
+      nameSecond: 'Liu Po-Hung',
+      email: 'liubohung@gmail.com',
+      website: 'https://liubohung.github.io',
+      github: 'liubohung',
+      kaggle: 'pohungliu',
+      gender: '性別：男',
+      birth: '生日：1999-12-10',
+      location: '地點：花蓮',
+      skillTitle: '技能',
+      skills: [
+        {
+          jobName: 'Programming Languages',
+          skillName: ['Python', 'C', 'JavaScript', 'Typescript(Still Learning)'],
+        },
+        {
+          jobName: 'Web Frameworks & Libraries',
+          skillName: ['Vue 3', 'Naive UI', 'Quasar', 'Flask'],
+        },
+        {
+          jobName: 'Data Science & Machine Learning',
+          skillName: ['Pandas', 'statsmodels', 'Scikit-learn', 'PyTorch'],
+        },
+        {
+          jobName: 'Data Visualization',
+          skillName: ['Matplotlib', 'Seaborn', 'Tableau public'],
+        },
+        {
+          jobName: 'Database',
+          skillName: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+        },
+      ],
     },
+
     experience: {
       title: '經歷',
-      item1: {
-        title: '大學',
-        subtitle: '逢甲大學 資訊工程學系',
-        description: '結合資訊工程與財金背景，具備資料處理、演算法與模型建構的基礎能力。',
-      },
-      item2: {
-        title: '教育資料視覺化研究助理',
-        subtitle: '教育機構合作專案（2022 - 2023）',
-        description: '負責設計與實作教育數據視覺化平台，協助分析學生學習成效與課程趨勢。',
-      },
-      item3: {
-        title: '資產定價研究與論文撰寫',
-        subtitle: '學術研究與專案合作（2021 - 至今）',
-        description: '從事資產定價模型建構、行為財務實證分析與金融市場異象研究，',
-      },
-      item4: {
-        title: '碩士班',
-        subtitle: '國立東華大學 財務金融學系',
-        description: '',
-      },
+      items: [
+        {
+          title: '大學',
+          subtitle: '逢甲大學 資訊工程學系 (2018 - 2022)',
+          description:
+            '在資工系就學期間，擔任過多門課程之助教(大三上物件導向軟體工程、大三下資料庫、大四上資料結構、大四下計算機演算法)， 並實際參與過多個不同領域之專案，涵蓋資料分析、人工智慧、嵌入式系統、資料庫與網頁開發以及圖形密碼學等領域。',
+          icon: 'mdi-school',
+        },
+        {
+          title: '教育資料視覺化研究助理',
+          subtitle: '教育機構合作專案（2023 - 2024）',
+          description: '負責設計與實作教育資料視覺化平台，分析學生就學與臺灣人口趨勢。',
+          icon: 'mdi-chart-timeline-variant-shimmer',
+        },
+
+        {
+          title: '碩士班',
+          subtitle: '國立東華大學 財務金融學系 (2023 - 2025)',
+          description:
+            '因對於金融領域的興趣，選讀財金碩士，於碩士班期間，專注於資產定價與行為財務相關理論的研究，並且深入學習計量經濟學。碩士論文『追逐未竟之地——基於短期視角下的投資報酬與樂透效應』為碩士班之研究成果。',
+          icon: 'mdi-school',
+        },
+        {
+          title: '未完待續',
+          subtitle: '',
+          description: '',
+        },
+      ],
+    },
+    interests: {
+      title: '學習興趣',
+      items: [
+        {
+          year: '2018',
+          topic: '初入程式世界',
+          description:
+            '大一進入逢甲大學資訊電機學院不分系榮譽班，首次接觸程式設計。閱讀經典著作 K&R《C Programming Language》，逐步建立程式設計的基本觀念與邏輯思維。',
+        },
+        {
+          year: '2019',
+          topic: '問題與應用',
+          description:
+            '大二開始參與多個實際專案（圖像密碼學、嵌入式系統），學習建構前後端應用、密碼學以及圖像處理',
+        },
+        {
+          year: '2020',
+          topic: '資料分析初探',
+          description:
+            '因選修資料探勘實務，建立對資料分析的初步認識，並開始學習使用 Python 進行資料處理。',
+        },
+        {
+          year: '2021',
+          topic: '資料分析進階',
+          description:
+            '持續累積資料分析經驗，進一步掌握 EDA、特徵工程與模型建構方法，培養系統化資料處理與分析的能力。',
+        },
+        {
+          year: '2022',
+          topic: '機器學習與深度學習',
+          description:
+            '加入實驗室，應用電腦視覺演算法，開發職棒剪輯系統，透過偵測計分板變化，自動擷取比賽精彩片段。',
+        },
+        {
+          year: '2023',
+          topic: '教育資料視覺化',
+          description:
+            '針對臺灣基礎教育資料進行視覺化與分析，協助探討學生入學趨勢與教育資源分佈，提供政策與研究之參考。',
+        },
+        {
+          year: '2024',
+          topic: '初入財金系',
+          description:
+            '進入財金系，學習計量經濟學，並將過往機器學習經驗與財金實證。計量經濟學著重於模型可解釋性與實證研究方法，機器學習則強調預測準確性與泛化能力，兩者間的結合將有助於更深入的研究。',
+        },
+        {
+          year: '2025',
+          topic: '資產定價與行為財務研究',
+          description:
+            '針對過往三十年學界資產定價實證與理論，進行系統性的探索與研究。並利用臺灣資料進行實證研究，碩士論文以資產定價中的樂透效應為題，『追逐未竟之地——基於短期視角下的投資報酬與樂透效應』為碩士班之研究成果。',
+        },
+        {
+          year: '',
+          topic: '未完待續',
+          description: '',
+        },
+      ],
     },
     projects: {
       title: '作品集',
-      project1: {
-        title: '個人網站',
-        description: '使用 Vue 與 Quasar 打造的作品展示網站。',
-      },
-      project2: {
-        title: '後台儀表板',
-        description: '具備即時數據與圖表的管理後台系統。',
-      },
-    },
-    contact: {
-      title: '聯絡我',
-      name: '你的名字',
-      email: '電子信箱',
-      message: '留言內容',
-      send: '送出訊息',
-      thankYou: '感謝你',
+      projectList: [
+        {
+          title: "Kaggle's 比賽程式碼",
+          description: '關於 Kaggle 比賽的程式碼與筆記，包含資料分析、建模與預測。',
+          url: 'https://www.kaggle.com/pohungliu/code',
+        },
+        {
+          title: '公開資訊觀測站 - 關鍵字搜尋',
+          description: '擷取 公開資訊觀測站 (MOPS) 相關公告資料。',
+          url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
+        },
+      ],
     },
   },
 };
 
-const i18n = createI18n({
+// --- Step 3: Create I18n Instance ---
+const i18n = createI18n<[LocaleMessages], 'en' | 'zh'>({
   legacy: false,
-  locale: 'en',
-  fallbackLocale: 'en',
+  locale: 'zh',
+  fallbackLocale: 'zh',
   messages,
 });
 

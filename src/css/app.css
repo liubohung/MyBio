@@ -1,1 +1,4 @@
 /* app global css */
+body {
+  font-family: 'Inter', 'Noto Sans TC', sans-serif;
+}
