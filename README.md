@@ -1,4 +1,4 @@
-# Quasar App (mybio)
+# mybio
 
 Build A Bio Page
 It is About Me, My Skills, My Interests, My Education, My Experience, My Projects
