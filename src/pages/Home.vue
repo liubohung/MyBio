@@ -3,7 +3,8 @@
     <div class="flex flex-center q-pa-xl">
       <div class="column items-center text-center animate__animated animate__fadeIn" style="max-width: 600px;">
         <q-img
-          src="/assets/avatar.jpg"
+          
+          src="assets/avatar.jpg" 
           style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; border: 4px solid #fff; box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);"
           class="q-mb-md coin-spin"
         />
@@ -29,13 +30,20 @@
 </template>
 
 
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import 'animate.css'
 
-defineOptions({ name: 'HomePage' })
-
-const { t } = useI18n()
+export default defineComponent({
+  name: 'HomePage',
+  setup() {
+    const { t } = useI18n()
+    return {
+      t
+    }
+  }
+})
 </script>
 
 

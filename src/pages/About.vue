@@ -7,7 +7,7 @@
         <q-card class="q-pa-md shadow-2 rounded-borders bg-white text-center">
           <!-- 大頭照 -->
           <q-img
-            src="/assets/msGraduate.jpg"
+            src="assets/msGraduate.jpg"
             class="profile-img"
           />
           
