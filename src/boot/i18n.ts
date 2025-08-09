@@ -75,7 +75,7 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
       title: 'About Me',
       summaryTitle: 'Summary',
       summary:
-        'I am a person driven by curiosity, passionate about exploring questions and seeking answers, with a profound interest in philosophical thinking. Programming is my passion—it allows me to deconstruct complex problems with logic and gain a deep sense of accomplishment through problem-solving and implementation. I enjoy challenging myself, actively embracing new experiences both in learning and in life.This mindset has led me to explore diverse fields and various technologies over the years, continuously honing my skills. For topics that spark my interest, even beyond my professional expertise, I devote time to in-depth research—understanding the problem, delving into its background, and exploring potential solutions.This is also why data science captivates me: it is not merely a mechanical exercise in technical implementation, but a discipline that intertwines comprehension and conjecture—a gateway to understanding the world and exploring truth.',
+        'I am a data science and programming enthusiast driven by a strong sense of curiosity and exploration, passionate about unraveling complex problems to uncover the underlying logical structures and deeper meanings. My philosophical thinking and logical reasoning have shaped my analytical approach, inspiring me to constantly question established frameworks and seek breakthroughs in technical practice.In terms of professional skills, I am proficient in multiple programming languages, including Python and R, and specialize in data preprocessing, feature engineering, machine learning modeling, deep learning applications, and statistical-based quantitative analysis. I have applied various algorithms—such as LightGBM, XGBoost, CatBoost, neural networks, and ARIMA—to tackle time series forecasting, classification, and regression tasks. My hands-on experience spans multiple Kaggle competitions as well as academic research projects, where I have gained solid practical expertise.For me, data science is not merely the stacking of models and algorithms—it is an interdisciplinary art that blends comprehension, insight, and critical thinking. Behind every dataset lies a reflection of human behavior, social structures, and even economic dynamics. I invest substantial effort in understanding the data-generating process and the relationships between variables, building and validating models to interpret the phenomena I observe.I also possess strong cross-disciplinary integration skills, seamlessly combining philosophical reflection, logical modeling, and technical execution. I remain highly attuned to emerging technologies and tools, embracing experimentation and iterative refinement in pursuit of optimal solutions. This mindset of continuous learning and self-challenge has enabled me to contribute across domains including information science, financial technology, and behavioral economics analysis.To me, data science is a window to understanding the world, while programming serves as the bridge that transforms thought into reality. I aspire to be a connector between abstract thinking and concrete implementation, creating value through the process of comprehending and explaining the world.',
       nameFirst: 'Liu Po-Hung',
       nameSecond: '劉伯洪',
       email: 'liubohung@gmail.com',
@@ -106,6 +106,10 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
         {
           jobName: 'Database',
           skillName: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+        },
+        {
+          jobName: 'Financial Skills',
+          skillName: ['Econometrics', 'Asset Pricing', 'Corporate Finance'],
         },
       ],
     },
@@ -214,6 +218,11 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           description: '擷取 公開資訊觀測站 (MOPS) 相關公告資料。',
           url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
         },
+        {
+          title: '全台大學資料視覺化',
+          description: '教育部全台大學資料視覺化，包含各校學生人數、科系分佈等資訊。',
+          url: 'https://public.tableau.com/views/_16849078708030/sheet4?:language=zh-TW&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
+        },
       ],
     },
   },
@@ -233,7 +242,7 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
       title: '關於我',
       summaryTitle: '個人簡介',
       summary:
-        '我是一位充滿好奇心的人，熱衷於探索問題並尋找解答，並且對哲學思考抱有濃厚興趣。程式設計是我的熱愛，它讓我能以邏輯拆解複雜問題，並在解決與實作的過程中獲得成就感。我樂於挑戰自我，無論在學習或生活中，都積極嘗試新事物。這使我在過去涉略多元領域與不同技術，並不斷精進自身能力。對於感興趣的議題，即便超出專業範疇，我也會投入時間深入研究。了解問題、深入背景知識以及探索解決方案。這也是資料科學吸引我的原因，因為它不僅僅是機械化的技術實踐，而是結合理解與猜想的工作，更是一扇理解世界、探索真理的窗口。',
+        '我是一位擁有強烈好奇心與探索精神的資料科學與程式設計愛好者，熱衷於從複雜問題中抽絲剝繭，追尋背後的邏輯結構與深層意涵。哲學思維與邏輯推理不僅塑造了我的思考方式，也驅動我持續反思與挑戰既有框架，進而在技術實踐中尋求突破。在專業技能方面，我熟稔 Python、R等多種程式語言，擅長於資料前處理、特徵工程、機器學習建模、深度學習應用，以及以統計學為基礎的量化分析。我曾運用多種演算法LightGBM、XGBoost、CatBoost、NN、ARIMA等工具，處理時間序列預測、分類與迴歸問題，也在多個 Kaggle 競賽與學術計畫中累積實戰經驗。資料科學對我而言，不只是模型與演算法的堆疊，而是一門結合理解力、洞察力與批判性思維的綜合性藝術。每一份數據背後都隱含著人類行為、社會結構、甚至經濟動態的縮影，我樂於投入時間從背景知識出發，深入研究資料生成機制與變數間的關聯，並透過模型建構與實證驗證來解釋觀察到的現象。我亦具備跨領域整合能力，能將哲學思辨、邏輯建模與技術實作融為一體，對於新技術與新工具保持高度敏感，並樂於進行實驗與反覆調整以追求最佳解。這種持續學習與挑戰自我的態度，讓我在資訊科學、金融科技、行為經分析等領域都有涉獵與貢獻。對我來說，資料科學是一扇通往世界的窗口，而程式設計則是讓思考化為現實的橋樑。我致力於成為能夠連結抽象思維與具體實踐的橋接者，在理解與解釋世界的過程中創造價值。',
       nameFirst: '劉伯洪',
       nameSecond: 'Liu Po-Hung',
       email: 'liubohung@gmail.com',
@@ -264,6 +273,10 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
         {
           jobName: 'Database',
           skillName: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
+        },
+        {
+          jobName: 'Financial Skills',
+          skillName: ['Econometrics', 'Asset Pricing', 'Corporate Finance'],
         },
       ],
     },
@@ -369,6 +382,11 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           title: '公開資訊觀測站 - 關鍵字搜尋',
           description: '擷取 公開資訊觀測站 (MOPS) 相關公告資料。',
           url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
+        },
+        {
+          title: '全台大學資料視覺化',
+          description: '教育部全台大學資料視覺化，包含各校學生人數、科系分佈等資訊。',
+          url: 'https://public.tableau.com/views/_16849078708030/sheet4?:language=zh-TW&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
         },
       ],
     },
