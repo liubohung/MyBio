@@ -62,6 +62,14 @@
         </div>
 
           <!-- 個人資料 -->
+          <!-- Language -->
+          <q-separator class="q-my-sm" />
+          <div class="text-body1 text-grey text-left personal-info">
+            <div v-for="(lang, index) in languageLevel" :key="index" class="q-mb-sm">
+              <q-icon name="g_translate" class="q-mr-sm" />
+              <span>{{ lang.language }}: {{ lang.level }}</span>
+            </div>
+          </div>
           <q-separator class="q-my-sm" />
           <div class="text-body1 text-grey text-left personal-info">
             <div><q-icon name="person" class="q-mr-sm" />{{ t('about.gender') }}</div>
@@ -154,7 +162,7 @@ interface Skill {
 }
 const myskills = computed<Skill[]>(() => tm('about.skills') ?? [])
 const experienceItems = computed(() => (tm('experience.items') ?? []))
-
+const languageLevel = computed(() => tm('about.languageLevel') ?? [])
 // 設定不同技能類別的顏色
 const skillColors = [
   'primary',

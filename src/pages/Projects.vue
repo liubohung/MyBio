@@ -35,7 +35,7 @@
     </q-list>
     <div class="update-footer text-center q-mt-xl">
       <q-icon name="mdi-refresh" size="sm" class="q-mr-xs text-primary" />
-      <span class="text-grey-7">持續更新中，敬請期待更多內容</span>
+      <span class="text-grey-7">持續更新中</span>
     </div>
   </q-page>
 </template>
@@ -65,6 +65,7 @@ const getPlatformIcon = (url?: string) => {
   if (!url) return 'folder_open'
   if (url.includes('kaggle')) return 'mdi-alpha-k-box'
   if (url.includes('github')) return 'mdi-github'
+  if (url.includes('tableau')) return 'auto_graph'
   return 'folder_open'
 }
 </script>

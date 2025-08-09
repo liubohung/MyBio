@@ -20,6 +20,11 @@ type skill = {
   skillName: string[];
 };
 
+type languageLevel = {
+  language: string;
+  level: string;
+};
+
 type LocaleMessages = {
   nav: Record<string, string>;
   home: Record<string, string>;
@@ -35,6 +40,7 @@ type LocaleMessages = {
     kaggle: string;
     gender: string;
     birth: string;
+    languageLevel?: languageLevel[];
     location: string;
     skillTitle: string;
     skills: skill[];
@@ -85,6 +91,16 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
       gender: 'Gender : Male',
       location: 'Location : Taiwan (Hualien)',
       birth: 'Birth : 1999-12-10',
+      languageLevel: [
+        {
+          language: 'English',
+          level: 'Intermediate',
+        },
+        {
+          language: 'Chinese',
+          level: 'Native',
+        },
+      ],
       skillTitle: 'Skills',
       skills: [
         {
@@ -137,11 +153,6 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           description:
             'Driven by my interest in finance, I pursued a Master’s degree in Finance. My graduate research focused on asset pricing and behavioral finance theories, with an in-depth study of econometrics. My master’s thesis, "Chasing the Uncharted: Lottery Effect and Short-Term Investment Returns," represents the culmination of my academic work during this period.',
           icon: 'mdi-school',
-        },
-        {
-          title: 'To Be Continued',
-          subtitle: '',
-          description: '',
         },
       ],
     },
@@ -197,11 +208,6 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           description:
             'Conducted systematic exploration of empirical and theoretical developments in asset pricing over the past three decades. Using Taiwan market data for empirical analysis, my master’s thesis focuses on the lottery effect in asset pricing: "To Run Where the Brave Dare Not Go : Investment Returns and the Lottery Effect from a Short-Term Perspective" represents the main research outcome of my graduate studies.',
         },
-        {
-          year: '',
-          topic: 'To Be Continued',
-          description: '',
-        },
       ],
     },
     projects: {
@@ -242,7 +248,7 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
       title: '關於我',
       summaryTitle: '個人簡介',
       summary:
-        '我是一位擁有強烈好奇心與探索精神的資料科學與程式設計愛好者，熱衷於從複雜問題中抽絲剝繭，追尋背後的邏輯結構與深層意涵。哲學思維與邏輯推理不僅塑造了我的思考方式，也驅動我持續反思與挑戰既有框架，進而在技術實踐中尋求突破。在專業技能方面，我熟稔 Python、R等多種程式語言，擅長於資料前處理、特徵工程、機器學習建模、深度學習應用，以及以統計學為基礎的量化分析。我曾運用多種演算法LightGBM、XGBoost、CatBoost、NN、ARIMA等工具，處理時間序列預測、分類與迴歸問題，也在多個 Kaggle 競賽與學術計畫中累積實戰經驗。資料科學對我而言，不只是模型與演算法的堆疊，而是一門結合理解力、洞察力與批判性思維的綜合性藝術。每一份數據背後都隱含著人類行為、社會結構、甚至經濟動態的縮影，我樂於投入時間從背景知識出發，深入研究資料生成機制與變數間的關聯，並透過模型建構與實證驗證來解釋觀察到的現象。我亦具備跨領域整合能力，能將哲學思辨、邏輯建模與技術實作融為一體，對於新技術與新工具保持高度敏感，並樂於進行實驗與反覆調整以追求最佳解。這種持續學習與挑戰自我的態度，讓我在資訊科學、金融科技、行為經分析等領域都有涉獵與貢獻。對我來說，資料科學是一扇通往世界的窗口，而程式設計則是讓思考化為現實的橋樑。我致力於成為能夠連結抽象思維與具體實踐的橋接者，在理解與解釋世界的過程中創造價值。',
+        '我是一位擁有強烈好奇心與探索精神的資料科學與程式設計愛好者，熱衷於從複雜問題中抽絲剝繭，追尋背後的邏輯結構與深層意涵。哲學思維與邏輯推理不僅塑造了我的思考方式，也驅動我持續反思與挑戰既有框架，進而在技術實踐中尋求突破。在專業技能方面，我熟稔 Python、R等多種程式語言，擅長於資料前處理、特徵工程、機器學習建模、深度學習應用，以及以統計學為基礎的量化分析。我曾運用多種演算法LightGBM、XGBoost、CatBoost、NN、ARIMA等工具，處理時間序列預測、分類與迴歸問題，也在多個 Kaggle 競賽與學術計畫中累積實戰經驗。資料科學對我而言，不只是模型與演算法的堆疊，而是一門結合理解力、洞察力與批判性思維的綜合性藝術。每一份資料背後都隱含著人類行為、社會結構、甚至經濟動態的縮影，我樂於投入時間從背景知識出發，深入研究資料生成機制與變數間的關聯，並透過模型建構與實證驗證來解釋觀察到的現象。我亦具備跨領域整合能力，能將哲學思辨、邏輯建模與技術實作融為一體，對於新技術與新工具保持高度敏感，並樂於進行實驗與反覆調整以追求最佳解。這種持續學習與挑戰自我的態度，讓我在資訊科學、金融科技、行為經分析等領域都有涉獵與貢獻。對我來說，資料科學是一扇通往世界的窗口，而程式設計則是讓思考化為現實的橋樑。我致力於成為能夠連結抽象思維與具體實踐的橋接者，在理解與解釋世界的過程中創造價值。',
       nameFirst: '劉伯洪',
       nameSecond: 'Liu Po-Hung',
       email: 'liubohung@gmail.com',
@@ -253,6 +259,16 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
       birth: '生日：1999-12-10',
       location: '地點：花蓮',
       skillTitle: '技能',
+      languageLevel: [
+        {
+          language: '中文',
+          level: '母語',
+        },
+        {
+          language: '英文',
+          level: '中等',
+        },
+      ],
       skills: [
         {
           jobName: 'Programming Languages',
@@ -304,11 +320,6 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           description:
             '因對於金融領域的興趣，選讀財金碩士，於碩士班期間，專注於資產定價與行為財務相關理論的研究，並且深入學習計量經濟學。碩士論文『追逐未竟之地——基於短期視角下的投資報酬與樂透效應』為碩士班之研究成果。',
           icon: 'mdi-school',
-        },
-        {
-          title: '未完待續',
-          subtitle: '',
-          description: '',
         },
       ],
     },
@@ -362,11 +373,6 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           topic: '資產定價與行為財務研究',
           description:
             '針對過往三十年學界資產定價實證與理論，進行系統性的探索與研究。並利用臺灣資料進行實證研究，碩士論文以資產定價中的樂透效應為題，『追逐未竟之地——基於短期視角下的投資報酬與樂透效應』為碩士班之研究成果。',
-        },
-        {
-          year: '',
-          topic: '未完待續',
-          description: '',
         },
       ],
     },
