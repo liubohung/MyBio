@@ -3,79 +3,81 @@
     <div class="row justify-center q-gutter-lg">
       
       <!-- 左側：個人資料區 -->
-      <div class="col-12 col-md-3">
-        <q-card class="q-pa-md shadow-2 rounded-borders bg-white text-center">
-          <!-- 大頭照 -->
-          <q-img
-            src="assets/msGraduate.jpg"
-            class="profile-img"
-          />
+      <div class="col-12 col-md-4 col-lg-3">
+        <q-card class="q-pa-md shadow-2 rounded-borders bg-white text-center about-sidecard">
+
+          <!-- 大頭照 --> 
+          <q-img src="assets/msGraduate.jpg" class="profile-img" /> 
           
-          <!-- 姓名與職稱 -->
-          <div class="text-h5 text-primary q-mt-md">
-            {{ t('about.nameFirst') }}
-          </div>
-          <div class="text-subtitle1 text-grey q-mb-md">
-            {{ t('about.nameSecond') }}
-          </div>
-          <q-separator class="q-my-sm" />
+          <!-- 姓名與職稱 --> 
+          <div class="text-h5 text-primary q-mt-md"> {{ t('about.nameFirst') }} </div> 
+          <div class="text-subtitle1 text-grey q-mb-md"> {{ t('about.nameSecond') }} </div> <q-separator class="q-my-sm" />
 
           <!-- 聯絡資訊 -->
-          <div class="text-body1 text-grey q-mt-md text-left contact-info">
-  
-          <!-- Email -->
-          <div class="q-mb-sm row items-center no-wrap">
-            <q-icon name="email" class="q-mr-sm" />
-            <span class="q-mr-sm">Email:</span>
-            <a href="mailto:youremail@example.com" target="_blank" rel="noopener noreferrer" class="text-grey">
-              <!-- {{ t('about.email') }} -->
-              liubohung@gmail.com
-            </a>
-          </div>
+          <q-list dense class="text-left">
+            <q-item tag="a" clickable href="mailto:liubohung@gmail.com" rel="noopener noreferrer">
+              <q-item-section avatar><q-icon name="email" /></q-item-section>
+              <q-item-section>
+                <q-item-label>Email</q-item-label>
+                <q-item-label caption class="wrap">liubohung@gmail.com</q-item-label>
+              </q-item-section>
+            </q-item>
 
-          <!-- Website -->
-          <div class="q-mb-sm row items-center no-wrap">
-            <q-icon name="language" class="q-mr-sm" />
-            <span class="q-mr-sm">Website:</span>
-            <a href="https://liubohung.github.io" target="_blank" rel="noopener noreferrer" class="text-grey">
-              {{ t('about.website') }}
-            </a>
-          </div>
+            <q-item tag="a" clickable href="https://liubohung.github.io" target="_blank" rel="noopener noreferrer">
+              <q-item-section avatar><q-icon name="language" /></q-item-section>
+              <q-item-section>
+                <q-item-label>Website</q-item-label>
+                <q-item-label caption class="wrap">{{ t('about.website') }}</q-item-label>
+              </q-item-section>
+            </q-item>
 
-          <!-- GitHub -->
-          <div class="q-mb-sm row items-center no-wrap">
-            <q-icon name="mdi-github" class="q-mr-sm" />
-            <span class="q-mr-sm">GitHub:</span>
-            <a href="https://github.com/liubohung" target="_blank" rel="noopener noreferrer" class="text-grey">
-              {{ t('about.github') }}
-            </a>
-          </div>
+            <q-item tag="a" clickable href="https://github.com/liubohung" target="_blank" rel="noopener noreferrer">
+              <q-item-section avatar><q-icon name="mdi-github" /></q-item-section>
+              <q-item-section>
+                <q-item-label>GitHub</q-item-label>
+                <q-item-label caption class="wrap">{{ t('about.github') }}</q-item-label>
+              </q-item-section>
+            </q-item>
 
-          <!-- Kaggle -->
-          <div class="q-mb-sm row items-center no-wrap">
-            <q-icon name="mdi-alpha-k-box" class="q-mr-sm" />
-            <span class="q-mr-sm">Kaggle:</span>
-            <a href="https://www.kaggle.com/pohungliu" target="_blank" rel="noopener noreferrer" class="text-grey">
-              {{ t('about.kaggle') }}
-            </a>
-          </div>
-        </div>
+            <q-item tag="a" clickable href="https://www.kaggle.com/pohungliu" target="_blank" rel="noopener noreferrer">
+              <q-item-section avatar><q-icon name="mdi-alpha-k-box" /></q-item-section>
+              <q-item-section>
+                <q-item-label>Kaggle</q-item-label>
+                <q-item-label caption class="wrap">{{ t('about.kaggle') }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+
+          <q-separator class="q-my-sm" />
+
+          <!-- 語言 -->
+          <q-list dense class="text-left">
+            <q-item v-for="(lang, i) in languageLevel" :key="i">
+              <q-item-section avatar><q-icon name="g_translate" /></q-item-section>
+              <q-item-section>
+                <q-item-label>{{ lang.language }}</q-item-label>
+                <q-item-label caption>{{ lang.level }}</q-item-label>
+              </q-item-section>
+            </q-item>
+          </q-list>
+
+          <q-separator class="q-my-sm" />
 
           <!-- 個人資料 -->
-          <!-- Language -->
-          <q-separator class="q-my-sm" />
-          <div class="text-body1 text-grey text-left personal-info">
-            <div v-for="(lang, index) in languageLevel" :key="index" class="q-mb-sm">
-              <q-icon name="g_translate" class="q-mr-sm" />
-              <span>{{ lang.language }}: {{ lang.level }}</span>
-            </div>
-          </div>
-          <q-separator class="q-my-sm" />
-          <div class="text-body1 text-grey text-left personal-info">
-            <div><q-icon name="person" class="q-mr-sm" />{{ t('about.gender') }}</div>
-            <div><q-icon name="cake" class="q-mr-sm" />{{ t('about.birth') }}</div>
-            <div><q-icon name="place" class="q-mr-sm" />{{ t('about.location') }}</div>
-          </div>
+          <q-list dense class="text-left">
+            <q-item>
+              <q-item-section avatar><q-icon name="person" /></q-item-section>
+              <q-item-section><q-item-label>{{ t('about.gender') }}</q-item-label></q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section avatar><q-icon name="cake" /></q-item-section>
+              <q-item-section><q-item-label>{{ t('about.birth') }}</q-item-label></q-item-section>
+            </q-item>
+            <q-item>
+              <q-item-section avatar><q-icon name="place" /></q-item-section>
+              <q-item-section><q-item-label class="wrap">{{ t('about.location') }}</q-item-label></q-item-section>
+            </q-item>
+          </q-list>
         </q-card>
       </div>
 
@@ -199,4 +201,10 @@ const skillColors = [
   display: flex;
   flex-wrap: wrap;
 }
+.wrap {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
 </style>
