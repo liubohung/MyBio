@@ -225,6 +225,11 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
         },
         {
+          title: '不動產交易趨勢',
+          description: '分析不動產交易資料，視覺化市場趨勢與各區域每坪均價，幫助使用者了解市場。',
+          url: 'https://liubohung.github.io/TW_HousePrice_Frontend/',
+        },
+        {
           title: '全台大學資料視覺化',
           description: '教育部全台大學資料視覺化，包含各校學生人數、科系分佈等資訊。',
           url: 'https://public.tableau.com/views/_16849078708030/sheet4?:language=zh-TW&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link',
@@ -389,6 +394,11 @@ const messages: Record<'en' | 'zh', LocaleMessages> = {
           title: '公開資訊觀測站 - 關鍵字搜尋',
           description: '擷取 公開資訊觀測站 (MOPS) 相關公告資料。',
           url: 'https://github.com/liubohung/TWSE_SearchingKeyword',
+        },
+        {
+          title: '不動產交易趨勢',
+          description: '分析不動產交易資料，視覺化市場趨勢與各區域每坪均價，幫助使用者了解市場。',
+          url: 'https://liubohung.github.io/TW_HousePrice_Frontend/',
         },
         {
           title: '全台大學資料視覺化',
